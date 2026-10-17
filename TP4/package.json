@@ -1,0 +1,21 @@
+{
+  "name": "projet_perso",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "Ismail",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "ejs": "^7.0.1",
+    "express": "^5.3.0",
+    "http": "^0.0.1-security",
+    "mongodb": "^7.7.0",
+    "morgan": "^1.12.1"
+  }
+}

@@ -1,0 +1,35 @@
+### Accueil
+GET http://localhost:3000/
+
+### Page d'accueil secondaire
+GET http://localhost:3000/home
+
+### Page utilisateur
+GET http://localhost:3000/user/123
+
+### Récupérer tous les contacts
+GET http://localhost:3000/contacts
+
+### Récupérer un contact par son ID
+GET http://localhost:3000/contacts/6ad363b92c5caf8f1aedef7a
+
+### Ajouter un contact
+POST http://localhost:3000/contacts
+Content-Type: application/json
+
+{
+  "name": "tl100to",
+  "age": 34
+}
+
+### Modifier un contact
+PUT http://localhost:3000/contacts/6ad363b92c5caf8f1aedef7a
+Content-Type: application/json
+
+{
+  "name": "toto modifié",
+  "age": 26
+}
+
+### Supprimer un contact
+DELETE http://localhost:3000/contacts/6ad363b92c5caf8f1aedef7a
