@@ -1,0 +1,62 @@
+### Default URL
+GET http://localhost:5000/
+
+### Default API URL
+GET http://localhost:5000/api/
+
+### Register (public)
+POST http://localhost:5000/api/auth/register
+Content-Type: application/json
+
+{
+    "email": "alice@example.com",
+    "password": "monMotDePasse123"
+}
+
+### Login (public) - nomme la requête pour réutiliser le token
+# @name login
+POST http://localhost:5000/api/auth/login
+Content-Type: application/json
+
+{
+    "email": "alice@example.com",
+    "password": "monMotDePasse123"
+}
+
+### Récupère le token de la réponse du login
+@token = {{login.response.body.token}}
+
+### Get all contacts (protégé)
+GET http://localhost:5000/api/contacts
+Authorization: Bearer {{token}}
+
+### Get one contact (protégé)
+GET http://localhost:5000/api/contacts/6adbc5576aaed70c9b395725
+Authorization: Bearer {{token}}
+
+### Add contact (protégé)
+POST http://localhost:5000/api/contacts
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+    "name": "Isma",
+    "age": 25
+}
+
+### Update contact (protégé)
+PATCH http://localhost:5000/api/contacts/6ad35f08620a3edbe5e2801f
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+    "name": "tasti",
+    "age": 18
+}
+
+### Delete contact (protégé)
+DELETE http://localhost:5000/api/contacts/6adbc501750d0ea0f8a068db
+Authorization: Bearer {{token}}
+
+### Sans token : doit renvoyer 401
+GET http://localhost:5000/api/contacts
